@@ -1,9 +1,9 @@
 USE motosymotos;
 
 --
--- Dumping data for table `cliente`
+-- Dumping data for table cliente
 --
-INSERT INTO `cliente` VALUES 
+INSERT INTO cliente VALUES 
 (1,'Jada Walford','712-156-1291','2003-11-03','54 6th Place'),
 (2,'Mortie Peattie','746-993-4244','2000-03-31','77 Debs Center'),
 (3,'Delphinia Pogson','921-220-7520','2004-06-22','50300 South Parkway'),
@@ -16,9 +16,9 @@ INSERT INTO `cliente` VALUES
 (10,'Tami Soames','511-802-4576','2002-02-08','1 Hooker Terrace');
 
 --
--- Dumping data for table `producto`
+-- Dumping data for table producto
 --
-INSERT INTO `producto` VALUES 
+INSERT INTO producto VALUES 
 (1,'et eros','orci luctus',28723,30141,7,8,'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue.'),
 (2,'vestibulum sagittis','semper',50733,59045,10,7,'Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.'),
 (3,'gravida sem','eu orci',46909,51022,8,10,'Integer ac neque. Duis bibendum.'),
@@ -31,9 +31,9 @@ INSERT INTO `producto` VALUES
 (10,'sit amet','mauris morbi',49193,40465,8,7,'Curabitur in libero ut massa volutpat convallis.');
 
 --
--- Dumping data for table `propietario`
+-- Dumping data for table propietario
 --
-INSERT INTO `propietario` VALUES 
+INSERT INTO propietario VALUES 
 (1,'MOTOS Y MOTOS','****','****'),
 (131302303,'Aileen Spellessy','362-797-8815','aspellessy8@about.me'),
 (160806642,'Peyter Patty','758-671-9732','ppatty6@vk.com'),
@@ -47,9 +47,9 @@ INSERT INTO `propietario` VALUES
 (961093621,'Vivienne Mohammad','590-565-6338','vmohammad4@hc360.com');
 
 --
--- Dumping data for table `proveedor`
+-- Dumping data for table proveedor
 --
-INSERT INTO `proveedor` VALUES 
+INSERT INTO proveedor VALUES 
 (1,'Johnston Inc','663-715-6889','tattac2@nih.gov'),
 (2,'Willms-Borer','143-673-5596','hkobiera7@networkadvertising.org'),
 (3,'Konopelski Inc','311-326-4140','rcarnock1@parallels.com'),
@@ -62,9 +62,9 @@ INSERT INTO `proveedor` VALUES
 (10,'Schumm Inc','701-380-6205','ctop4@webeden.co.uk');
 
 --
--- Dumping data for table `servicio`
+-- Dumping data for table servicio
 --
-INSERT INTO `servicio` VALUES 
+INSERT INTO servicio VALUES 
 (1,'Nulla tellus. In sagittis dui vel nisl.',49205),
 (2,'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.',22181),
 (3,'Aenean lectus.',29980),
@@ -77,14 +77,14 @@ INSERT INTO `servicio` VALUES
 (10,'Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio.',12628);
 
 --
--- Dumping data for table `tipo_sistema`
+-- Dumping data for table tipo_sistema
 --
-INSERT INTO `tipo_sistema` VALUES (1,'EPS'),(2,'ARL'),(3,'Fondo Pensiones');
+INSERT INTO tipo_sistema VALUES (1,'EPS'),(2,'ARL'),(3,'Fondo Pensiones');
 
 --
--- Dumping data for table `sistema_social_empleado`
+-- Dumping data for table sistema_social_empleado
 --
-INSERT INTO `sistema_social_empleado` VALUES 
+INSERT INTO sistema_social_empleado VALUES 
 ('0378-1160','Gorczany, Johns and Rowe','612-281-4760','24 Lukken Alley',1),
 ('0573-2450','Toy, Hayes and Ritchie','787-222-0830','47 Mayer Terrace',1),
 ('36987-3182','Douglas Group','667-470-2035','14 Prentice Terrace',2),
@@ -97,14 +97,14 @@ INSERT INTO `sistema_social_empleado` VALUES
 ('75857-9300','Torp, Fahey and Stroman','903-198-7470','9582 Ruskin Way',2);
 
 --
--- Dumping data for table `tipo_transaccion`
+-- Dumping data for table tipo_transaccion
 --
-INSERT INTO `tipo_transaccion` VALUES (1,'Venta'),(2,'Compra');
+INSERT INTO tipo_transaccion VALUES (1,'Venta'),(2,'Compra');
 
 --
--- Dumping data for table `empleado`
+-- Dumping data for table empleado
 --
-INSERT INTO `empleado` VALUES 
+INSERT INTO empleado VALUES 
 (124067956,'Shaun','Tatlowe','492-997-2375','7 Longview Place','2002-09-19','statlowe1@istockphoto.com','19','43598-003','54868-0021','49817-0058'),
 (126451960,'Sutherland','Knok','140-731-9328','509 Rieder Pass','1994-11-09','sknok6@mit.edu','14','0378-1160','54868-0021','75857-9300'),
 (179825565,'Herold','Primett','897-882-8766','737 Merry Center','1993-01-04','hprimett2@devhub.com','19','0573-2450','54868-0021','75857-9300'),
@@ -117,9 +117,9 @@ INSERT INTO `empleado` VALUES
 (993689202,'Nikolai','Mergue','458-137-0179','4 Schlimgen Center','1993-03-01','nmergue5@stanford.edu','16','0573-2450','54868-0021','36987-3182');
 
 --
--- Dumping data for table `motocicleta`
+-- Dumping data for table motocicleta
 --
-INSERT INTO `motocicleta` VALUES 
+INSERT INTO motocicleta VALUES 
 ('01UG47Z',14807982,15842263,'sem mauris',223,'Maecenas ut massa quis augue luctus tincidunt.','2021-12-24','2022-03-19',1438309,1280196,1),
 ('03160JJ',12749812,13826568,'elit proin',260,'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.','2022-09-25','2022-08-08',1851030,1736052,1),
 ('037G056',10199183,18860983,'nisl',258,'Nam congue, risus semper porta volutpat, quam pede lobortis ligula.','2022-10-04','2022-02-28',1377317,1750733,1),
@@ -132,9 +132,9 @@ INSERT INTO `motocicleta` VALUES
 ('D713BCZ',15166628,10297325,'ultricies',212,'Vestibulum rutrum rutrum neque.','2022-06-21','2022-11-17',1870776,2914107,798547024);
 
 --
--- Dumping data for table `motocicleta_cliente`
+-- Dumping data for table motocicleta_cliente
 --
-INSERT INTO `motocicleta_cliente` VALUES 
+INSERT INTO motocicleta_cliente VALUES 
 ('00CN3ZZ',2,'ligula nec'),('01SH4ZZ',7,'imperdiet et'),
 ('01U437Z',3,'vestibulum ante'),('03HM0DZ',7,'ipsum aliquam'),
 ('03US07Z',3,'elementum'),('04RK07Z',8,'vestibulum'),
