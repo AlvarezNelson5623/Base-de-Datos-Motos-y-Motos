@@ -5,7 +5,7 @@ CREATE TRIGGER add_new_quantity_of_products
 AFTER INSERT ON compra_producto_has_producto
 FOR EACH ROW
 BEGIN 
-	DECLARE valor_producto_compra DOUBLE ;
+    DECLARE valor_producto_compra DOUBLE ;
     DECLARE valor_compra DOUBLE;
     UPDATE producto SET producto.existencias_disponibles =producto.existencias_disponibles + new.cantidad_producto
     WHERE producto.id_producto= new.id_producto;
@@ -38,7 +38,7 @@ CREATE TRIGGER delete_quantity_of_products
 AFTER INSERT ON venta_producto_has_producto
 FOR EACH ROW
 BEGIN 
-	DECLARE valor_producto_venta DOUBLE ;
+    DECLARE valor_producto_venta DOUBLE ;
     DECLARE valor_venta DOUBLE;
     UPDATE producto SET producto.existencias_disponibles =producto.existencias_disponibles - new.cantidad_producto
     WHERE producto.id_producto= new.id_producto;
@@ -73,7 +73,7 @@ CREATE TRIGGER actualizar_propietario_actual_moto
 AFTER INSERT ON compra_venta_motocicleta
 FOR EACH ROW
 BEGIN
-	UPDATE motocicleta SET motocicleta.propietario_actual = new.propietario_compra 
+    UPDATE motocicleta SET motocicleta.propietario_actual = new.propietario_compra 
     WHERE motocicleta.placa_motocicleta= new.placa_motocicleta;
 END
 $$ 
@@ -90,7 +90,7 @@ CREATE TRIGGER costo_ingreso
 AFTER INSERT ON ingreso_has_servicio
 FOR EACH ROW
 BEGIN
-	DECLARE valor_venta DOUBLE;
+    DECLARE valor_venta DOUBLE;
     DECLARE id_venta INT UNSIGNED;
     DECLARE costo_servicio DOUBLE;
     DECLARE valor DOUBLE;
@@ -99,12 +99,12 @@ BEGIN
     SET valor_venta =(SELECT venta_producto.valor_venta FROM venta_producto WHERE id_venta_producto = id_venta) ;
     SET costo_servicio = (SELECT servicio.costo FROM servicio WHERE servicio.id_servicio= new.id_servicio);
     IF valor = 0 AND id_venta <> NULL THEN
-		UPDATE ingreso_motocicleta SET ingreso_motocicleta.valor_ingreso = costo_servicio + valor_venta
-		WHERE ingreso_motocicleta.id_ingreso= new.id_ingreso;
+	UPDATE ingreso_motocicleta SET ingreso_motocicleta.valor_ingreso = costo_servicio + valor_venta
+	WHERE ingreso_motocicleta.id_ingreso= new.id_ingreso;
     ELSE
-		UPDATE ingreso_motocicleta SET ingreso_motocicleta.valor_ingreso = ingreso_motocicleta.valor_ingreso + costo_servicio 
-		WHERE ingreso_motocicleta.id_ingreso= new.id_ingreso;
-	END IF;
+	UPDATE ingreso_motocicleta SET ingreso_motocicleta.valor_ingreso = ingreso_motocicleta.valor_ingreso + costo_servicio 
+	WHERE ingreso_motocicleta.id_ingreso= new.id_ingreso;
+    END IF;
 END
 $$
 
