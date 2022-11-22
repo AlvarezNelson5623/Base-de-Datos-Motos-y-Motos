@@ -73,7 +73,9 @@ CREATE TRIGGER actualizar_propietario_actual_moto
 AFTER INSERT ON compra_venta_motocicleta
 FOR EACH ROW
 BEGIN
-    UPDATE motocicleta SET motocicleta.propietario_actual = new.propietario_compra 
+    UPDATE motocicleta SET motocicleta.propietario_actual = new.propietario_compra
+    WHERE motocicleta.placa_motocicleta= new.placa_motocicleta;
+    UPDATE motocicleta SET motocicleta.valor_motocicleta=new.valor_transaccion
     WHERE motocicleta.placa_motocicleta= new.placa_motocicleta;
 END
 $$ 
