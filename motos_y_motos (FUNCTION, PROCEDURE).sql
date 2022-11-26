@@ -7,7 +7,7 @@ DELIMITER //
 CREATE FUNCTION num_transacciones_entre_fecha( transaccion VARCHAR(10), fecha_uno VARCHAR(20), fecha_dos VARCHAR(20))
 	RETURNS VARCHAR (100)
 BEGIN
-	DECLARE num INT UNSIGNED;
+    DECLARE num INT UNSIGNED;
     DECLARE output VARCHAR(100);
     IF transaccion = 'Venta' THEN
 		SET num = (SELECT COUNT(*) FROM venta_producto WHERE venta_producto.fecha_venta BETWEEN fecha_uno AND fecha_dos);
@@ -27,22 +27,22 @@ DELIMITER //
 CREATE PROCEDURE listar_compra_venta_motocicleta(IN transaccion VARCHAR(10))
 BEGIN
     IF transaccion = "COMPRA" THEN
-		SELECT compra_venta_motocicleta.id_venta_motocicleta, tipo_transaccion.nombre, compra_venta_motocicleta.placa_motocicleta,
+	SELECT compra_venta_motocicleta.id_venta_motocicleta, tipo_transaccion.nombre, compra_venta_motocicleta.placa_motocicleta,
         empleado.nombres, propietario.nombre,compra_venta_motocicleta.propietario_compra , compra_venta_motocicleta.valor_transaccion 
-		FROM compra_venta_motocicleta 
+	FROM compra_venta_motocicleta 
         INNER JOIN propietario ON propietario.id_propietario = compra_venta_motocicleta.propietario_compra
         INNER JOIN tipo_transaccion ON tipo_transaccion.id_tipo_transaccion=compra_venta_motocicleta.tipo_transaccion
         INNER JOIN empleado ON empleado.doc_empleado = compra_venta_motocicleta.doc_empleado
         WHERE compra_venta_motocicleta.tipo_transaccion = 2;
-	ELSEIF transaccion = "VENTA"THEN
-		SELECT compra_venta_motocicleta.id_venta_motocicleta, tipo_transaccion.nombre, compra_venta_motocicleta.placa_motocicleta,
-		empleado.nombres,compra_venta_motocicleta.propietario_vende,propietario.nombre, compra_venta_motocicleta.valor_transaccion 
-		FROM compra_venta_motocicleta 
+    ELSEIF transaccion = "VENTA" THEN
+	SELECT compra_venta_motocicleta.id_venta_motocicleta, tipo_transaccion.nombre, compra_venta_motocicleta.placa_motocicleta,
+	empleado.nombres,compra_venta_motocicleta.propietario_vende,propietario.nombre, compra_venta_motocicleta.valor_transaccion 
+	FROM compra_venta_motocicleta 
         INNER JOIN propietario ON propietario.id_propietario = compra_venta_motocicleta.propietario_compra
         INNER JOIN tipo_transaccion ON tipo_transaccion.id_tipo_transaccion=compra_venta_motocicleta.tipo_transaccion
         INNER JOIN empleado ON empleado.doc_empleado = compra_venta_motocicleta.doc_empleado
         WHERE compra_venta_motocicleta.tipo_transaccion = 1;
-	END IF;
+    END IF;
 END
 //
 

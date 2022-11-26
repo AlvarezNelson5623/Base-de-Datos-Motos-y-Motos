@@ -1,5 +1,9 @@
 USE motosymotos;
--- -------------------------------------------------------------------------------------------------------------------
+drop trigger add_new_quantity_of_products;
+-- ----------------------------------------------------------------------------------------------------------------------------------
+-- INSERT
+-- ----------------------------------------------------------------------------------------------------------------------------------
+
 DELIMiTER $$
 CREATE TRIGGER add_new_quantity_of_products
 AFTER INSERT ON compra_producto_has_producto
@@ -121,3 +125,42 @@ INSERT INTO ingreso_motocicleta VALUES
 --
 INSERT INTO ingreso_has_servicio VALUES 
 (1,2),(1,4),(2,5),(2,7);
+
+-- ----------------------------------------------------------------------------------------------------------------------------------
+-- DELETE AND UPDATE
+-- ----------------------------------------------------------------------------------------------------------------------------------
+DELIMITER //
+CREATE TRIGGER eliminar_compra_producto
+BEFORE DELETE ON compra_producto
+FOR EACH ROW
+BEGIN
+	DELETE FROM compra_producto_has_producto WHERE compra_producto_has_producto.id_compra_producto=old.id_compra_producto;
+END
+//
+
+DELIMITER //
+CREATE TRIGGER eliminar_venta_producto
+BEFORE DELETE ON venta_producto
+FOR EACH ROW
+BEGIN
+	DELETE FROM venta_producto_has_producto WHERE venta_producto_has_producto.id_venta_producto=old.id_venta_producto;
+END
+//
+
+DELIMITER //
+CREATE TRIGGER actualizar_compra_producto_has_producto
+BEFORE UPDATE ON compra_producto_has_producto
+FOR EACH ROW
+BEGIN
+    UPDATE producto SET producto.existencias_disponibles =(producto.existencias_disponibles - OLD.cantidad_producto) + NEW.cantidad_producto ;
+END
+//
+
+DELIMITER //
+CREATE TRIGGER actualizar_venta_producto_has_producto
+BEFORE UPDATE ON venta_producto_has_producto
+FOR EACH ROW
+BEGIN
+	UPDATE producto SET producto.existencias_disponibles = (producto.existencias_disponibles + OLD.cantidad_producto) - NEW.cantidad_producto;
+END
+//
