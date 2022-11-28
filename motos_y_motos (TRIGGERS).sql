@@ -1,5 +1,4 @@
 USE motosymotos;
-drop trigger add_new_quantity_of_products;
 SET SQL_SAFE_UPDATES = 0;
 -- ----------------------------------------------------------------------------------------------------------------------------------
 -- INSERT
